@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            /* display: contents;
+             */
+            height: 520px;
+            width: 600px;
+            margin: 0; 
+        }
+        h1{
+            margin: 0;
+            /* background-color: aquamarine; */
+            padding: 1%;
+            color: aliceblue;
+        }
+        #info{
+            display: flex;
+        }
+        .search{
+            padding: 1%;
+        }
+        #split{
+            display: flex;
+            flex-direction: row;
+            border: 2px solid black;
+            /* width: 500px; */
+            height: 460px;
+        }
+        #first{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            background-color: grey;
+            position: relative;
+            overflow-y: auto;
+        }
+        #second{
+            position: relative;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            background-color: seashell;
+            overflow-y: auto;
+            padding: 0 6px;
+        }
+        #bottom1{
+            padding: 4px;
+            background: linear-gradient(45deg, black, grey);
+        }
+        .sessionDiv{
+            display: flex;
+            background-color: aliceblue;
+            border: 1px solid black;
+            padding: 0 3px;
+            margin: 1px;
+        }
+        h4{
+            display: flex;
+            flex: 1;
+            padding: 1px;
+        }
+        h5{
+            flex: 6;
+            font: message-box;
+        }
+        p{
+            margin-top: 10%;
+            font-weight: 600;
+            padding: 2px;
+        }
+
+        #sessionInput,#saveSession{
+            padding: 3px;
+        }
+        #sessionHeader{
+            padding: 1%;
+            background: linear-gradient(313deg, lightgreen, teal);
+        }
+        .delete{
+            color:red;
+            margin-right: 4px;
+            margin-top: 4px;
+        }
+        #rightUid{
+            color: transparent;
+            margin: 0;
+        }
+        .cross{
+            color: red;
+            margin-left: 2%;
+        }
+        .dropdown {
+            margin: 4px;
+            padding: 0;
+            list-style: none;
+            width: 100px;
+            background-color: #0abf53;
+            display: contents;
+        }
+
+/* .dropdown li {
+  position: relative;
+  display: flex;
+}
+
+.dropdown li a {
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown li ul {
+  position: absolute;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  line-height: normal;
+  background-color: #333;
+}
+
+.dropdown li ul li a {
+  text-align: left;
+  color: #cccccc;
+  font-size: 14px;
+  padding: 10px;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown li ul li a:hover {
+  background-color: #0abf53;
+  color: #ffffff;
+}
+
+.dropdown li ul li ul {
+  left: 100%;
+  top: 0;
+
+}
+
+ul li:hover>a {
+  background-color: #0abf53;
+  color: #ffffff !important;
+}
+
+ul li:hover>ul {
+  display: block;
+} */
+
+    </style>
+</head>
+<body>
+    <div id="sessionHeader">
+    <h1>Session Manager</h1>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Search..">
+        <button><i class="fa fa-search"></i></button>
+        <select name="sort" id="sort">
+            <option value="Newest">Newest</option>
+            <option value="Oldest">Oldest</option>
+        </select>
+        <button id="deleteAll" style="cursor:pointer;background-color:red;color:white;margin:4px;border:none">Delete All Sessions</button>  
+        <button id ="update">Update</button>
+    </div>
+    </div>
+    <div id="split">
+            <div id="first">            
+                <!-- <div class="sessionDiv" id="1">
+                    <h4>Div name</h4>
+                    <p>12/10/19 02:03:00</p>
+                    <i class="fa fa-trash delete"></i>
+                </div>
+                <div class="sessionDiv" id="2">
+                    <h4>Vit</h4>
+                    <p>12/10/19 02:03:00</p>
+                    <i class="fa fa-trash delete"></i>
+                </div> -->
+    
+                <div id="bottom">
+                </div>
+            </div>
+        <div id="second">
+            <div id="rightSide">
+                <h2 id="rightSessionName">Name of the Session Group</h2>
+                <h6 id="rightUid">565656565</h6>
+                <div id="info">
+                    <h4 id="rightGroups">No of groups</h4>
+                    <h4 id="rightTabs">No of tabs</h4>
+                    <p id="rightDate">Date/Time</p>
+                </div>
+                <hr>
+            </div>
+            <ul class="dropdown" id="dropdown">
+                <div id="dropdown-content">
+                <li><a href="#">Menu</a>
+                    <ul>
+                        <li><a href="https://www.google.com/" target="_blank">Nice Dropdown Menu</a></li>
+                        <li><a href="#">Submenu - 1</a></li>
+                        <li><a href="#">Dropdown</a>
+                            <ul>
+                                <li><a href="">Submenu - 1dfsjdsfj;dsj;dgd;sj;dsg;dfkf;dk;fds;d</a></li>
+                                <li><a href="">Submenu - 2</a></li>
+                                <li><a href="">Submenu - 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Submenu - 2</a></li>
+                    </ul>
+                </li>
+            </div>
+            </ul>
+            <div id="rightBottom">
+            </div>
+        </div>
+    </div>    
+    <div id="bottom1">
+        <input type="text" id="sessionInput" placeholder="Name the Session">
+        <button id="saveSession">Save</button>
+    </div>
+    <script src="./popup.js"></script>
+</body>
+</html>
